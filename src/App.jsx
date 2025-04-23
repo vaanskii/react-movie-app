@@ -1,19 +1,28 @@
-const Card = ({ title }) => {
-  return (
-    <div>
-      <h2>{title}</h2>
-    </div>
-  );
-};
+import React, { useState } from "react";
+import Search from "./components/Search";
 
 const App = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
-    <div className="card-container">
-      <Card title="Star Wars" isCool={true} />
-      <Card title="Avatar" />
-      <Card title="Thge Lion King" />
-    </div> //
-  );
+    <main>
+      <div className="pattern" />
+
+      <div className="wrapper">
+        <header>
+          <img src="./hero-img.png" alt="Hero Banner"/>
+          <h1>
+            Find 
+            <span className="text-gradient"> Movies</span> 
+            You'll Without the Hassle
+          </h1>
+        </header>
+
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />\
+        <h1 className="text-white">{searchTerm}</h1>
+      </div>
+    </main>
+  )
 };
 
 export default App;
